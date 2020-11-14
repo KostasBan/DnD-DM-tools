@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Rounded_Corners_40px Blue
+  m_Name: Rounded_Corners_20px Task Number
   m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -32,5 +32,5 @@ Material:
     - _StencilWriteMask: 255
     - _UseUIAlphaClip: 0
     m_Colors:
-    - _WidthHeightRadius: {r: 300, g: 457.64005, b: 40, a: 0}
+    - _WidthHeightRadius: {r: 20, g: 20, b: 20, a: 0}
   m_BuildTextureStacks: []
