@@ -13,13 +13,14 @@ public class SaveAsPng : MonoBehaviour
         if (grabImage)
         {
             grabImage = false;
-            //TakeScreenShot();
             RenderTexture rt = previewCamera.targetTexture;
-            Texture2D screenShot = new Texture2D(rt.width, rt.height, TextureFormat.ARGB32, false);
-            Rect rect = new Rect(Screen.width-rt.width, 0, rt.width, rt.height);
+            int width = Mathf.CeilToInt(transformToCapture.rect.width);
+            int height = Mathf.CeilToInt(transformToCapture.rect.height);
+            Texture2D screenShot = new Texture2D(width, height, TextureFormat.ARGB32, false);
+            Rect rect = new Rect((Screen.width - width) / 2, (Screen.height - height) / 2, width, height);
             screenShot.ReadPixels(rect, 0, 0);
             byte[] bytes = screenShot.EncodeToPNG();
-            string filename = ScreenShotName(rt.width, rt.height);
+            string filename = ScreenShotName(width, height);
             System.IO.File.WriteAllBytes(filename, bytes);
             Debug.Log(string.Format("Took screenshot to: {0}", filename));
             RenderTexture.ReleaseTemporary(rt);
@@ -29,10 +30,6 @@ public class SaveAsPng : MonoBehaviour
 
     private void TakeScreenShot()
     {
-        //previewCamera.rect = new Rect(1 - transformToCapture.rect.width / Screen.width, 1 - transformToCapture.rect.height / Screen.height, 1, 1);
-        //int resWidth = Mathf.FloorToInt(transformToCapture.rect.width);
-        //int resHeight = Mathf.FloorToInt(transformToCapture.rect.height);
-        //previewCamera.targetTexture = RenderTexture.GetTemporary(resWidth, resHeight, 16);
         previewCamera.targetTexture = RenderTexture.GetTemporary(Screen.width, Screen.height, 16);
     }
 
@@ -46,7 +43,25 @@ public class SaveAsPng : MonoBehaviour
 
     public void TakeHiResShot()
     {
-        TakeScreenShot();
-        grabImage = true;
+        if (transformToCapture.rect.height < 1080)
+        {
+            TakeScreenShot();
+            grabImage = true;
+            if (transformToCapture.rect.height > 950)
+                Debug.LogError("Please not that images larger than950 pixels does not feet in an A4 page wihtout scaling");
+        }
+        else
+        {
+            Debug.LogError("The image is greater than 1080pxs and it isnt yet implemented a way to capture bigger images");
+        }
+
+    }
+
+    private void Start()
+    {
+        previewCamera.transform.position = new Vector3(0, 0, -(1920 / previewCamera.aspect) * 0.5f / Mathf.Tan(previewCamera.fieldOfView * 0.5f * Mathf.Deg2Rad));
     }
 }
+//make it read more than 1080px height images.
+//make it with dynamic data.
+//check if i can do the same with the main camera only
