@@ -5,7 +5,7 @@ using UnityEngine;
 public class SaveAsPng : MonoBehaviour
 {
     [SerializeField] private Camera previewCamera = null;
-    [SerializeField] private RectTransform transformToCapture;
+    [SerializeField] private RectTransform transformToCapture=null;
 
     private bool grabImage;
     private void OnPostRender()

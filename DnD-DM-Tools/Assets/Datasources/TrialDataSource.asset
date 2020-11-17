@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c580059e285883f4c9992706fc275477, type: 3}
+  m_Name: TrialDataSource
+  m_EditorClassIdentifier: 
+  selectedTrial:
+    name: Lake skill trial
+    tags:
+    - Trial
+    - Medium
+    - Detailed
+    dc: 15
+    cr: 2
+    numofFailures: 5
+    checks: 2
+    checkPace: 0
+    deadline: 10
+    deadlinePace: 0
+    goalText: Extract the Gem out of the lake
+    outcomes:
+    - minMaxFailures: {x: 0, y: 0}
+      typeofVictory: 0
+      info: 
+    - minMaxFailures: {x: 0, y: 0}
+      typeofVictory: 0
+      info: 
+    - minMaxFailures: {x: 0, y: 0}
+      typeofVictory: 0
+      info: 
+    - minMaxFailures: {x: 0, y: 0}
+      typeofVictory: 0
+      info: 
+    tasks:
+    - name: Swim in the lake
+      info: Swimming in the lake is an easy task.
+      numofSuccesses: 3
+    - name: Search the lake
+      info: Searching the bottom of the lake isn't an easy task but after some time
+        you can spot between the lake weeds two hands holding a small chest.
+      numofSuccesses: 4
+    - name: Search the weeds
+      info: Requirements(A and B) the weeds seem like they are strapped around this
+        dead person and probably this is the cause of his death.
+      numofSuccesses: 2
+    - name: Clear the Weeds
+      info: Requirements(A and B and C) Each round you are trying to unlock the chest
+        the weeds are trying to grapple you causing 1 damage the first turn, 2 damage
+        the second etc.
+      numofSuccesses: 2
+    - name: Unlock chest
+      info: Requirements(A and B and C) pick locking under water is an extremely
+        difficult task. You can use thieves tools to get a +2 bonus.
+      numofSuccesses: 2
+    - name: Holding breath
+      info: 'Requirements(A) You can hold your breath for a number of rounds twice
+        your constitution score. After that you must make a DC 10 Constitution check 
+        to continue holding your breath. Each round after that the check is increased
+        by 1.  On a critical success you can only remove one failure in addition
+        to gaining one success. '
+      numofSuccesses: 6
+  Trials: []
