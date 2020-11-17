@@ -32,5 +32,5 @@ Material:
     - _StencilWriteMask: 255
     - _UseUIAlphaClip: 0
     m_Colors:
-    - _WidthHeightRadius: {r: 18, g: 18, b: 18, a: 0}
+    - _WidthHeightRadius: {r: 0, g: 0, b: 18, a: 0}
   m_BuildTextureStacks: []

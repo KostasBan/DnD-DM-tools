@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Rounded_Corners_40px White
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Name: Indipendent_RoundedCorners_20px_XY
+  m_Shader: {fileID: 4800000, guid: d3beb88e61f88ca4393acdefb005fa70, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -32,5 +32,7 @@ Material:
     - _StencilWriteMask: 255
     - _UseUIAlphaClip: 0
     m_Colors:
-    - _WidthHeightRadius: {r: 300, g: 805.24005, b: 40, a: 0}
+    - _halfSize: {r: 140, g: 11.145, b: 0, a: 0}
+    - _r: {r: 10, g: 10, b: 50, a: 50}
+    - _rect2props: {r: 0.000015258789, g: 20, b: 85.66246, a: 85.66246}
   m_BuildTextureStacks: []

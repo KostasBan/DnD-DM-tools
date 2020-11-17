@@ -42,7 +42,7 @@ public class TrialOutcomeValues
                 returnString = "Minor Defeat";
                 break;
         }
-        return "</b>" + returnString + ": </b>";
+        return "<b>" + returnString + ": </b>" + info;
     }
 
     public string Info => info;

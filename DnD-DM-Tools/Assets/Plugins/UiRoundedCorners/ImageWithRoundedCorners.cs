@@ -9,19 +9,11 @@ public class ImageWithRoundedCorners : MonoBehaviour
     public float radius;
     private void Start()
     {
-        var rect = ((RectTransform)transform).rect;
-        Vector4 props = material.GetVector(Props);
-        if (rect.width != props.x || rect.height != props.y)
-        {
-            Image img = GetComponent<Image>();
-            img.material = new Material(material);
-            material = img.material;
-            Refresh();
-        }
+        CreateNewMaterialANDRefresh();
     }
     void OnRectTransformDimensionsChange()
     {
-        Refresh();
+        CreateNewMaterialANDRefresh();
     }
     private void OnValidate()
     {
@@ -32,5 +24,17 @@ public class ImageWithRoundedCorners : MonoBehaviour
         var rect = ((RectTransform)transform).rect;
         if (material != null)
             material.SetVector(Props, new Vector4(rect.width, rect.height, radius, 0));
+    }
+    private void CreateNewMaterialANDRefresh()
+    {
+        var rect = ((RectTransform)transform).rect;
+        Vector4 props = material.GetVector(Props);
+        if (rect.width != props.x || rect.height != props.y)
+        {
+            Image img = GetComponent<Image>();
+            img.material = new Material(material);
+            material = img.material;
+            Refresh();
+        }
     }
 }

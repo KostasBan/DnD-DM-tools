@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TrialDataSource
   m_EditorClassIdentifier: 
   selectedTrial:
-    name: Lake skill trial
+    name: Lake skill trials
     tags:
     - Trial
     - Medium
@@ -28,17 +28,23 @@ MonoBehaviour:
     goalText: Extract the Gem out of the lake
     outcomes:
     - minMaxFailures: {x: 0, y: 0}
-      typeofVictory: 0
-      info: 
-    - minMaxFailures: {x: 0, y: 0}
-      typeofVictory: 0
-      info: 
-    - minMaxFailures: {x: 0, y: 0}
-      typeofVictory: 0
-      info: 
-    - minMaxFailures: {x: 0, y: 0}
-      typeofVictory: 0
-      info: 
+      typeofVictory: 1
+      info: 'The chest is unlocked.  You restore the gem from inside the locked chest
+        and you also recover another 120gp that was hidden in a hidden compartment. '
+    - minMaxFailures: {x: 1, y: 2}
+      typeofVictory: 3
+      info: 'The chest is unlocked.  You restore the gem from inside the locked chest
+        and you also recover another 20gp that was hidden in a hidden compartment. '
+    - minMaxFailures: {x: 3, y: 4}
+      typeofVictory: 4
+      info: 'The player who was trying to open the chest is now unconscious due to
+        lack of air and with 0 HP. When he wakes up you find the restored gem in
+        his palm. The chest was unlocked just in time. '
+    - minMaxFailures: {x: 5, y: 5}
+      typeofVictory: 6
+      info: The runes in the palms of the body detonets causing the player that is
+        trying to open it to become unconscious at 0 HP and causes 1 damage to all
+        other characters that are outside the water. The gem is destroyed.
     tasks:
     - name: Swim in the lake
       info: Swimming in the lake is an easy task.

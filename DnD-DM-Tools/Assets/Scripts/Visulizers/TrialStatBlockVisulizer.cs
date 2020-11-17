@@ -37,15 +37,10 @@ public class TrialStatBlockVisulizer : MonoBehaviour
 
     private void Awake()
     {
-        tagPool = new Pooler(tagPrefab, 1, tagContainer);
-        failurePool = new Pooler(failurePrefab, 1, failureContainer);
-        outcomePool = new Pooler(outcomePrefab, 1, outcomeContainer);
-        taskPool = new Pooler(taskPrefab, 1, taskContainer);
-    }
-
-#if UNITY_EDITOR
-    private void OnValidate()
-    {
+        //tagPool = new Pooler(tagPrefab, 1, tagContainer);
+        //failurePool = new Pooler(failurePrefab, 1, failureContainer);
+        //outcomePool = new Pooler(outcomePrefab, 1, outcomeContainer);
+        //taskPool = new Pooler(taskPrefab, 1, taskContainer);
         if (tagPool == null)
             tagPool = new Pooler(tagPrefab, 1, tagContainer);
         FreeTags();
@@ -54,17 +49,16 @@ public class TrialStatBlockVisulizer : MonoBehaviour
             failurePool = new Pooler(failurePrefab, 1, failureContainer);
         FreeFailures();
 
-        if(outcomePool==null)
+        if (outcomePool == null)
             outcomePool = new Pooler(outcomePrefab, 1, outcomeContainer);
         FreeOutcomes();
 
-        if (taskPool==null)
+        if (taskPool == null)
             taskPool = new Pooler(taskPrefab, 1, taskContainer);
         FreeTasks();
 
         RefreshVisulizer();
     }
-#endif
 
     private void RefreshVisulizer()
     {
@@ -92,7 +86,7 @@ public class TrialStatBlockVisulizer : MonoBehaviour
         for (int i = 0; i < length; i++)
         {
             activeoutcomes.Add(outcomePool.Get().GetComponent<OutcomeVisulizer>());
-            activeoutcomes[i].SetOutcome(i, data.selectedTrial.Outcomes[i]);
+            activeoutcomes[i].SetOutcome(i, data.selectedTrial.Outcomes[i],i==length-1);
         }
 
         length = data.selectedTrial.Tasks.Length;
